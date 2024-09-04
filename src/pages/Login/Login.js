@@ -1,17 +1,20 @@
-import style from './Login.module.css'
+import style from './Login.module.css';
 import Imput from '../../component/Imput/Imput';
 import emailIcon from '../../assets/Img/Emeil.svg';
 import senhaIcon from '../../assets/Img/Senha.svg';
 import olhoFechadoIcon from '../../assets/Img/Blind.svg';
+import olhoAbertoIcon from '../../assets/Img/Eye.svg';
 import Branco from '../../assets/Img/Branco.svg';
 import { useState } from 'react';
 import Botao from '../../component/Botao/Botao';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    return(
+    return (
         <div className={style.container}>
             <div className={style.quadrado1}>
                 <h1>BEM VINDO DE VOLTA</h1>
@@ -33,9 +36,10 @@ function Login() {
                     placeholder="Senha"
                     onChange={(e) => setPassword(e.target.value)}
                     imagen2={olhoFechadoIcon}
+                    imagen3={olhoAbertoIcon}
                 />
-                <h5>Esqueceu a sua senha? Clique <span className={style.italico}>aqui</span> para redefinir</h5>
-                <Botao children={"Entrar"} onClick={() => console.log(email, password)}/>
+                <h5>Esqueceu a sua senha? Clique <span className={style.italico} onClick={() => navigate('/refazer-senha')}>aqui</span> para redefinir</h5>
+                <Botao children={"Entrar"} onClick={() => console.log(email, password)} />
             </div>
         </div>
     );
