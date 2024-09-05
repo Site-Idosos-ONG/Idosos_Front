@@ -46,7 +46,7 @@ function MudancaSenha() {
                 imagen2={olhoFechadoIcon}
                 imagen3={olhoAbertoIcon}
             />
-            <Botao children={"Atualizar"} onClick={() => handleCheck()}/>
+            <Botao children={"Atualizar"} onClick={() => handleCheck()} color={'blueButton'}/>
         </div>
     </div>
     );

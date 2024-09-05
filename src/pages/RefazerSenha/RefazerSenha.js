@@ -27,7 +27,7 @@ function RefazerSenha() {
                 onChange={(e) => setEmail(e.target.value)}
                 imagen2={Branco}
             /> 
-            <Botao children={"Enviar"} onClick={() => console.log(email, password)}/>
+            <Botao children={"Enviar"} onClick={() => console.log(email, password)} color={'blueButton'}/>
         </div>
     </div>
     );
