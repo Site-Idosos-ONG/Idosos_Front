@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+.tela {
+    height: 200vh;
+}
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -29,6 +33,14 @@
     justify-content: space-around;
     width: 30%;
     margin-left: auto;
+    position: fixed; /* Fixar a navbar na tela */
+    top: 0; /* Alinhar ao topo da tela */
+    left: 0; /* Garantir que esteja no lado esquerdo da tela */
+    right: 0; /* Garantir que a largura se ajuste ao contêiner */
+    z-index: 1000; /* Manter a navbar acima de outros elementos */
+    background-color: white; /* Colocar cor de fundo para evitar sobreposição */
+    padding: 10px; /* Ajustar o espaçamento */
+    background: transparent;
 }
 
 .navibar h4 {
@@ -77,7 +89,18 @@
 .quadrado2 img {
     width: 40%;
     animation: slidein 5s forwards;
+    transition: transform 1s ease-in-out, width 1s ease-in-out;
 }
+
+.moveLeft {
+    transform: translate(-180%, -57%) scale(0.2); /* Mover para o canto superior esquerdo */
+    position: fixed;
+    top: 11%;
+    left: 56%;
+    z-index: 1000; /* Garante que a imagem fique sobre outros elementos */
+    transition: transform 2s ease, width 2s ease;
+}
+
 
 .italico {
     font-weight: bold;
