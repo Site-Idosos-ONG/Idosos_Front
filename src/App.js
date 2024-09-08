@@ -1,15 +1,18 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import RefazerSenha from './pages/RefazerSenha/RefazerSenha';
+import MudancaSenha from './pages/MudancaSenha/MudancaSenha';
+import Homepage from './pages/Homepage/Homepage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/refazer-senha" element={<RefazerSenha />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/redefinicao-senha" element={<RefazerSenha />} />
+        <Route path="/mudar-senha" element={<MudancaSenha />} />
+        <Route path='/' element={<Homepage />} />
         {/*<Route path="*" element={<NotFound />} />*/} {/* Rota para página 404 */} {/*Lembra de fazer a pagina de erro 404 n esquecer de forma nehuma */}
       </Routes>
     </Router>

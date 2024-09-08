@@ -38,8 +38,8 @@ function Login() {
                     imagen2={olhoFechadoIcon}
                     imagen3={olhoAbertoIcon}
                 />
-                <h5>Esqueceu a sua senha? Clique <span className={style.italico} onClick={() => navigate('/refazer-senha')}>aqui</span> para redefinir</h5>
-                <Botao children={"Entrar"} onClick={() => console.log(email, password)} />
+                <h5>Esqueceu a sua senha? Clique <span className={style.italico} onClick={() => navigate('/redefinicao-senha')}>aqui</span> para redefinir</h5>
+                <Botao children={"Entrar"} onClick={() => console.log(email, password)} color={'blueButton'} />
             </div>
         </div>
     );

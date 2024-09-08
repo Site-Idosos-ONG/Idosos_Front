@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.tela {
+    height: 200vh;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.quadrado{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+
+}
+
+.triangulo{
+    display: flex;
+    margin-right: 50px;
+    border-right: 35vw solid transparent;
+    border-bottom: 25px solid transparent;
+    border-top: 7vw solid #3C3E9A;
+}
+
+.navibar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
+    margin-left: auto;
+    position: fixed; /* Fixar a navbar na tela */
+    top: 0; /* Alinhar ao topo da tela */
+    left: 0; /* Garantir que esteja no lado esquerdo da tela */
+    right: 0; /* Garantir que a largura se ajuste ao contêiner */
+    z-index: 1000; /* Manter a navbar acima de outros elementos */
+    background-color: white; /* Colocar cor de fundo para evitar sobreposição */
+    padding: 10px; /* Ajustar o espaçamento */
+    background: transparent;
+}
+
+.navibar h4 {
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #3E3F92;
+}
+
+.quadrado2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.texto {
+    width: 40%;
+}
+
+.texto h1 {
+    font-family: "Passion One", sans-serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 45.23px;
+    text-align: left;
+    color: #3E3F92;
+    margin: 0%;
+    animation: showup 5s forwards;
+}
+
+.texto h6 {
+    font-family: "Poppins", sans-serif;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: left;
+    color: #3E3F92;
+    margin: 1%;
+    animation: showup 5s forwards;
+}
+
+.quadrado2 img {
+    width: 40%;
+    animation: slidein 5s forwards;
+    transition: transform 1s ease-in-out, width 1s ease-in-out;
+}
+
+.moveLeft {
+    transform: translate(-180%, -57%) scale(0.2); /* Mover para o canto superior esquerdo */
+    position: fixed;
+    top: 11%;
+    left: 56%;
+    z-index: 1000; /* Garante que a imagem fique sobre outros elementos */
+    transition: transform 2s ease, width 2s ease;
+}
+
+
+.italico {
+    font-weight: bold;
+    color: #f9812b;
+    width:0px;
+    animation: showup 6s forwards;
+}
+
+.texto button {
+    animation: showup 6s forwards;
+    width: 154px;
+    height: 45.83px;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px;opacity:0;width:0px;}
+    20% { margin-left:-800px;opacity:0;}
+    35% { margin-left:0px;opacity:1; }
+    100% { margin-left:0px;opacity:1; }
+}

@@ -1,8 +1,6 @@
 import style from './RefazerSenha.module.css';
 import Imput from '../../component/Imput/Imput';
 import emailIcon from '../../assets/Img/Emeil.svg';
-import senhaIcon from '../../assets/Img/Senha.svg';
-import olhoFechadoIcon from '../../assets/Img/Blind.svg';
 import Branco from '../../assets/Img/Branco.svg';
 import Botao from '../../component/Botao/Botao';
 import { useState } from 'react';
@@ -29,7 +27,7 @@ function RefazerSenha() {
                 onChange={(e) => setEmail(e.target.value)}
                 imagen2={Branco}
             /> 
-            <Botao children={"Enviar"} onClick={() => console.log(email, password)}/>
+            <Botao children={"Enviar"} onClick={() => console.log(email, password)} color={'blueButton'}/>
         </div>
     </div>
     );
