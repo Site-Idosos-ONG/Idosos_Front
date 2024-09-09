@@ -4,6 +4,7 @@ import Login from './pages/Login/Login';
 import RefazerSenha from './pages/RefazerSenha/RefazerSenha';
 import MudancaSenha from './pages/MudancaSenha/MudancaSenha';
 import Homepage from './pages/Homepage/Homepage';
+import Cadastro from './pages/Cadastro/Cadastro';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/redefinicao-senha" element={<RefazerSenha />} />
         <Route path="/mudar-senha" element={<MudancaSenha />} />
-        <Route path='/' element={<Homepage />} />
+        <Route path='/homepage' element={<Homepage />} />
+        <Route path="/cadastro" element={<Cadastro />} />
         {/*<Route path="*" element={<NotFound />} />*/} {/* Rota para página 404 */} {/*Lembra de fazer a pagina de erro 404 n esquecer de forma nehuma */}
       </Routes>
     </Router>
