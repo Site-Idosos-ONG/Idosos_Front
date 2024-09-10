@@ -35,7 +35,7 @@ function Homepage() {
                     <div className={style.navibar}>
                         <h4 onClick={() => navigate('/')}>INICIO</h4>
                         <h4>DOAÇÕES</h4>
-                        <Botao children={"CADASTRA-SE"} onClick={() => console.log("Entrar")} color={'orengeButton'}/>
+                        <Botao children={"CADASTRA-SE"} onClick={() => navigate('/cadastro')} color={'orengeButton'}/>
                     </div>
                 </div>
                 <div className={style.quadrado2}>
