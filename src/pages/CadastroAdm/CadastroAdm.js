@@ -1,4 +1,4 @@
-import style from './Cadastro.module.css';
+import style from './CadastroAdm.module.css';
 import Imput from '../../component/Imput/Imput';
 import identidade from '../../assets/Img/Identidade.svg';
 import emailIcon from '../../assets/Img/Emeil.svg';
@@ -11,7 +11,6 @@ import Branco from '../../assets/Img/Branco.svg';
 import { useState } from 'react';
 import { handleCPFChange } from '../../service/FuncoesGerais';
 import { useNavigate } from 'react-router-dom';
-import { postCadastroUsuario } from '../../service/API_Fumcition';
 
 function Cadastro() {
     const [email, setEmail] = useState('');
@@ -51,74 +50,56 @@ function Cadastro() {
 
     // Função de validação
     const validarFormulario = () => {
-        if (!name, !email, !password, !password2, !cpf) {
+        if (!name || !email || !password || !password2 || !cpf) {
             setError('Todos os campos são obrigatórios.');
             return false;
         }
-
+    
         if (!name) {
             setError('Nome é obrigatório.');
             return false;
         }
-
-        // Exemplo básico de validação de CPF (11 dígitos, sem espaços ou caracteres especiais)
+    
         if (!cpf || cpf.length !== 14) {
             setError('CPF inválido. Deve conter 11 dígitos.');
             return false;
         }
-
+    
         const emailRegex = /\S+@\S+\.\S+/;
         if (!emailRegex.test(email)) {
             setError('Email inválido.');
             return false;
         }
-
-        if (!password || !password2) {
-            setError('As senhas são obrigatórias.');
-            return false;
-        }
-
+    
         if (password !== password2) {
             setError('As senhas não coincidem.');
             return false;
         }
-
+    
         if (password.length < 8 || password2.length < 8) {
-            setError('A senha deve conter pelo menos 8 dígitos.');
+            setError('A senha deve conter pelo menos 8 caracteres.');
             return false;
         }
-
+    
         setError(''); // Limpa o erro se tudo estiver correto
         return true;
     };
+    
 
     // Função para o clique do botão
     const handleCadastroClick = () => {
         if (validarFormulario()) {
-            const dados = {
-                email: email,
-                senha: password,
-                nome: name,
-                cpf: cpf
-            };
-    
-            try {
-                postCadastroUsuario(dados);
-                setSuccess('Cadastro realizado com sucesso!');
-                setTimeout(() => {
-                    navigate('/');
-                }, 1000);
-            } catch (error) {
-                console.log(error);
-                setError('Erro ao realizar o cadastro. Tente novamente.');
-            }
+            setSuccess('Cadastro realizado com sucesso!'); // Define a mensagem de sucesso
+            setTimeout(() => {
+                navigate('/'); // Aguarda 2 segundos antes de navegar
+            }, 1000);
         }
     };
 
     return (
         <div className={style.container}>
             <div className={style.quadrado1}>
-                <h2>OLÁ</h2>
+                <h2>ADMIN</h2>
                 <h6>Realize seu <span className={style.italico}>cadastro</span></h6>
             
             <Imput value={name}
@@ -166,7 +147,7 @@ function Cadastro() {
             <Botao 
                 children={"Cadastrar"} 
                 onClick={handleCadastroClick} 
-                color={'blueButton'}
+                color={'lightBlueButton'}
             />
             </div>
         

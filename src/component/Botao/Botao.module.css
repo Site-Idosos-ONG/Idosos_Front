@@ -15,6 +15,11 @@
     color: #3C3E9A;
 }
 
+.lightBlueButton {
+    background: #1164A7;
+    color: white;
+}
+
 button {
     width: 133px;
     height: 39px;
