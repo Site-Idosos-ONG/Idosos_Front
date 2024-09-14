@@ -92,18 +92,18 @@ function Cadastro() {
         return true;
     };
 
-    const handleCadastroClick = () => {
+    const handleCadastroClick = async () => {
         if (validarFormulario()) {
-            const dados = {
+            const dados = [{
                 email: email,
                 senha: password,
                 nome: name,
                 cpf: cpf,
                 adm: 0
-            };
+            }];
     
             try {
-                const response = postCadastroUsuario(dados);
+                const response = await postCadastroUsuario(dados);
                 setSuccess('Cadastro realizado com sucesso!');
                 setTimeout(() => {
                     navigate('/');
