@@ -1,17 +1,17 @@
-import style from './Cadastro.module.css';
+import style from './CadastroAdm.module.css';
 import Imput from '../../component/Imput/Imput';
-import identidade from '../../assets/Img/Identidade.svg';
-import emailIcon from '../../assets/Img/Emeil.svg';
+import identidade from '../../assets/Img/IdentidadeLightBlue.svg';
+import emailIcon from '../../assets/Img/EmailLightBlue.svg';
 import Botao from '../../component/Botao/Botao';
-import CPF from '../../assets/Img/CPF.svg';
-import senha from '../../assets/Img/Senha.svg';
+import CPF from '../../assets/Img/CPFLightBlue.svg';
+import senha from '../../assets/Img/SenhaLightBlue.svg';
 import olhoFechadoIcon from '../../assets/Img/Blind.svg';
 import olhoAbertoIcon from '../../assets/Img/Eye.svg';
 import Branco from '../../assets/Img/Branco.svg';
 import { useState } from 'react';
 import { handleCPFChange } from '../../service/FuncoesGerais';
 import { useNavigate } from 'react-router-dom';
-import { postCadastroUsuario } from '../../service/API_Fumcition';
+import { postCadastroADM } from '../../service/API_Fumcition';
 
 function Cadastro() {
     const [email, setEmail] = useState('');
@@ -51,47 +51,43 @@ function Cadastro() {
 
     // Função de validação
     const validarFormulario = () => {
-        if (!name, !email, !password, !password2, !cpf) {
+        if (!name || !email || !password || !password2 || !cpf) {
             setError('Todos os campos são obrigatórios.');
             return false;
         }
-
+    
         if (!name) {
             setError('Nome é obrigatório.');
             return false;
         }
-
-        // Exemplo básico de validação de CPF (11 dígitos, sem espaços ou caracteres especiais)
+    
         if (!cpf || cpf.length !== 14) {
             setError('CPF inválido. Deve conter 11 dígitos.');
             return false;
         }
-
+    
         const emailRegex = /\S+@\S+\.\S+/;
         if (!emailRegex.test(email)) {
             setError('Email inválido.');
             return false;
         }
-
-        if (!password || !password2) {
-            setError('As senhas são obrigatórias.');
-            return false;
-        }
-
+    
         if (password !== password2) {
             setError('As senhas não coincidem.');
             return false;
         }
-
+    
         if (password.length < 8 || password2.length < 8) {
-            setError('A senha deve conter pelo menos 8 dígitos.');
+            setError('A senha deve conter pelo menos 8 caracteres.');
             return false;
         }
-
+    
         setError(''); // Limpa o erro se tudo estiver correto
         return true;
     };
+    
 
+    // Função para o clique do botão
     const handleCadastroClick = async () => {
         if (validarFormulario()) {
             const dados = [{
@@ -99,11 +95,11 @@ function Cadastro() {
                 senha: password,
                 nome: name,
                 cpf: cpf,
-                adm: 0
+                adm: 1
             }];
     
             try {
-                const response = await postCadastroUsuario(dados);
+                const response = await postCadastroADM(dados);
                 setSuccess('Cadastro realizado com sucesso!');
                 navigate('/');
             } catch (error) {
@@ -116,7 +112,7 @@ function Cadastro() {
     return (
         <div className={style.container}>
             <div className={style.quadrado1}>
-                <h2>OLÁ</h2>
+                <h2>ADMIN</h2>
                 <h6>Realize seu <span className={style.italico}>cadastro</span></h6>
             
             <Imput value={name}
@@ -164,13 +160,13 @@ function Cadastro() {
             <Botao 
                 children={"Cadastrar"} 
                 onClick={handleCadastroClick} 
-                color={'blueButton'}
+                color={'lightBlueButton'}
             />
             </div>
         
         <div className={style.quadrado2}>
-                <h1>SEJA MUITO BEM VINDO </h1>
-                <h6>Para começar a fazer parte desse <span className={style.italico}>projeto</span> é necessário preencher algumas <span className={style.italico}>informações</span></h6>
+                <h1>ADMINISTRADOR</h1>
+                <h6>Cadastre um usuario como admin na base de dados</h6>
             </div>
         </div>
 
