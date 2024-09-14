@@ -77,7 +77,7 @@
 }
 
 .quadrado2 h1 {
-    width: 45%;
+    width: 100%;
     font-family: "Passion One", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -86,10 +86,11 @@
     text-align: center;
     color: #FFFFFF;
     margin: 0%;
+    word-break: break-all;
 }
 
 .quadrado2 h6 {
-    width: 40%;
+    width: 65%;
     font-family: "Poppins", sans-serif;
     font-style: normal;
     font-size: 16px;
@@ -112,4 +113,12 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     margin: 0%;
+}
+
+.quadrado1 input{
+    color: #147bcf;
+}
+
+.quadrado1 input::placeholder{
+    color: #147bcf;
 }

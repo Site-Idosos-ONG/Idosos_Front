@@ -92,18 +92,18 @@ function Cadastro() {
         return true;
     };
 
-    // Função para o clique do botão
     const handleCadastroClick = () => {
         if (validarFormulario()) {
             const dados = {
                 email: email,
                 senha: password,
                 nome: name,
-                cpf: cpf
+                cpf: cpf,
+                adm: 0
             };
     
             try {
-                postCadastroUsuario(dados);
+                const response = postCadastroUsuario(dados);
                 setSuccess('Cadastro realizado com sucesso!');
                 setTimeout(() => {
                     navigate('/');

@@ -1,10 +1,10 @@
 import style from './CadastroAdm.module.css';
 import Imput from '../../component/Imput/Imput';
-import identidade from '../../assets/Img/Identidade.svg';
-import emailIcon from '../../assets/Img/Emeil.svg';
+import identidade from '../../assets/Img/IdentidadeLightBlue.svg';
+import emailIcon from '../../assets/Img/EmailLightBlue.svg';
 import Botao from '../../component/Botao/Botao';
-import CPF from '../../assets/Img/CPF.svg';
-import senha from '../../assets/Img/Senha.svg';
+import CPF from '../../assets/Img/CPFLightBlue.svg';
+import senha from '../../assets/Img/SenhaLightBlue.svg';
 import olhoFechadoIcon from '../../assets/Img/Blind.svg';
 import olhoAbertoIcon from '../../assets/Img/Eye.svg';
 import Branco from '../../assets/Img/Branco.svg';
@@ -152,8 +152,8 @@ function Cadastro() {
             </div>
         
         <div className={style.quadrado2}>
-                <h1>SEJA MUITO BEM VINDO </h1>
-                <h6>Para começar a fazer parte desse <span className={style.italico}>projeto</span> é necessário preencher algumas <span className={style.italico}>informações</span></h6>
+                <h1>ADMINISTRADOR</h1>
+                <h6>Cadastre um usuario como admin na base de dados</h6>
             </div>
         </div>
 

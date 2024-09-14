@@ -16,9 +16,10 @@
 }
 
 .lightBlueButton {
-    background: #1164A7;
+    background: #147bcf;
     color: white;
 }
+
 
 button {
     width: 133px;
@@ -42,3 +43,4 @@ button:hover {
 button:active {
     transform: scale(0.95);
 }
+
