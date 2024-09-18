@@ -1,8 +1,11 @@
 import style from "./MenuPrincipalUsuario.module.css";
 import Foto from "../../assets/Img/FotoPerfil.png";
 import MenuInicial from "../../component/MenuInicial/MenuInicial";
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function MenuPrincipalUsuario() {
+    const element = <FontAwesomeIcon icon="fa-solid fa-house" />
     return(
 
         <div className={style.fundo}>
