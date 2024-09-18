@@ -19,3 +19,8 @@ export const postLogin = async (data) => {
     const response = await axiosInstance.post("/login", data);
     return response.data;
 }
+
+export const postMudarSenha = async (data, id) => {
+    const response = await axiosInstance.post("/resetar_senha/" + id, data);
+    return response.data;
+}
