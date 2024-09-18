@@ -8,11 +8,34 @@ import Branco from '../../assets/Img/Branco.svg';
 import { useState } from 'react';
 import Botao from '../../component/Botao/Botao';
 import { useNavigate } from 'react-router-dom';
+import { postLogin } from '../../service/API_Fumcition';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
+    const handleLogin = async () => {
+        const dados = [{
+            email: email,
+            password: password
+        }]
+
+        try {
+            const response = await postLogin(dados);
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div className={style.container}>
@@ -27,19 +50,19 @@ function Login() {
                     imagen1={emailIcon}
                     type="email"
                     placeholder="Email"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
                     imagen2={Branco}
                 />
                 <Imput
                     imagen1={senhaIcon}
                     type="password"
                     placeholder="Senha"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={handlePasswordChange}
                     imagen2={olhoFechadoIcon}
                     imagen3={olhoAbertoIcon}
                 />
                 <h5>Esqueceu a sua senha? Clique <span className={style.italico} onClick={() => navigate('/redefinicao-senha')}>aqui</span> para redefinir</h5>
-                <Botao children={"Entrar"} onClick={() => console.log(email, password)} color={'blueButton'} />
+                <Botao children={"Entrar"} onClick={() => handleLogin()} color={'blueButton'} />
             </div>
         </div>
     );
