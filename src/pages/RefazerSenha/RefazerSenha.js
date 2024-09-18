@@ -5,9 +5,11 @@ import Branco from '../../assets/Img/Branco.svg';
 import Botao from '../../component/Botao/Botao';
 import { useState } from 'react';
 import { postVerificarEmail } from '../../service/API_Fumcition';
+import { useNavigate } from 'react-router-dom';
 
 function RefazerSenha() {
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -15,8 +17,10 @@ function RefazerSenha() {
 
     const handleVerificarClick = async () => {
         try {
-            const response = await postVerificarEmail(email);
+            const response = await postVerificarEmail({email: email});
             console.log(response);
+            alert("Email enviado comfirme para continuar");
+            navigate('/login');
         } catch (error) {
             console.log(error);
         }
