@@ -11,6 +11,7 @@ import Branco from '../../assets/Img/Branco.svg';
 import { useState } from 'react';
 import { handleCPFChange } from '../../service/FuncoesGerais';
 import { useNavigate } from 'react-router-dom';
+import { postCadastroADM } from '../../service/API_Fumcition';
 
 function Cadastro() {
     const [email, setEmail] = useState('');
@@ -87,12 +88,24 @@ function Cadastro() {
     
 
     // Função para o clique do botão
-    const handleCadastroClick = () => {
+    const handleCadastroClick = async () => {
         if (validarFormulario()) {
-            setSuccess('Cadastro realizado com sucesso!'); // Define a mensagem de sucesso
-            setTimeout(() => {
-                navigate('/'); // Aguarda 2 segundos antes de navegar
-            }, 1000);
+            const dados = [{
+                email: email,
+                senha: password,
+                nome: name,
+                cpf: cpf,
+                adm: 1
+            }];
+    
+            try {
+                const response = await postCadastroADM(dados);
+                setSuccess('Cadastro realizado com sucesso!');
+                navigate('/');
+            } catch (error) {
+                console.log(error);
+                setError('Erro ao realizar o cadastro. Tente novamente.');
+            }
         }
     };
 

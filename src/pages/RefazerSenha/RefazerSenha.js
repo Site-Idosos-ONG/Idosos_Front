@@ -4,12 +4,27 @@ import emailIcon from '../../assets/Img/Emeil.svg';
 import Branco from '../../assets/Img/Branco.svg';
 import Botao from '../../component/Botao/Botao';
 import { useState } from 'react';
+import { postVerificarEmail } from '../../service/API_Fumcition';
+import { useNavigate } from 'react-router-dom';
 
 function RefazerSenha() {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    }
 
+    const handleVerificarClick = async () => {
+        try {
+            const response = await postVerificarEmail({email: email});
+            console.log(response);
+            alert("Email enviado comfirme para continuar");
+            navigate('/login');
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return(
         <div className={style.container}>
@@ -24,10 +39,10 @@ function RefazerSenha() {
                 imagen1={emailIcon}
                 type="email"
                 placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmailChange}
                 imagen2={Branco}
             /> 
-            <Botao children={"Enviar"} onClick={() => console.log(email, password)} color={'blueButton'}/>
+            <Botao children={"Enviar"} onClick={() => handleVerificarClick()} color={'blueButton'}/>
         </div>
     </div>
     );

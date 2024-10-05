@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/redefinicao-senha" element={<RefazerSenha />} />
-        <Route path="/mudar-senha" element={<MudancaSenha />} />
+        <Route path="/mudar-senha/:id" element={<MudancaSenha />} />
         <Route path='/' element={<Homepage />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/cadastroadm" element={<CadastroAdm/>} />
