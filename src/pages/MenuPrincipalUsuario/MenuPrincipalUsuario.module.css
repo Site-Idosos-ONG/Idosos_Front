@@ -11,9 +11,79 @@
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: linear-gradient(180deg, #12125E 0%, #262877 100%);
     height: 100vh;
     width: 7%;
+    border-radius: 0px 12px 12px 0px;
+    position: relative;
+}
+
+.sidebarContent{
+    padding: 12px;
+}
+
+.sideItens {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+.sideItem {
+    border-radius: 8px;
+    padding: 5px;
+    cursor: pointer;
 }
 
 
+.sideItem.active {
+    background-color: #d6941b;
+    color:#ffffff;
+}
+
+.sideItem.active span{
+    color:#12125E;
+    gap: 14px;
+}
+
+.sideItem:hover:not(.active) {
+    background-color:#393bb1;
+}
+
+.texto {
+    gap: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnLogout {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+}
+
+.btnRight {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #d6941b;
+
+}

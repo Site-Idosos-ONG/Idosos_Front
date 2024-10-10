@@ -1,7 +1,7 @@
 import style from './Cadastro.module.css';
 import Imput from '../../component/Imput/Imput';
 import identidade from '../../assets/Img/Identidade.svg';
-import emailIcon from '../../assets/Img/Emeil.svg';
+import emailUserIcon from '../../assets/Img/EmailUser.svg';
 import Botao from '../../component/Botao/Botao';
 import CPF from '../../assets/Img/CPF.svg';
 import senha from '../../assets/Img/Senha.svg';
@@ -134,7 +134,7 @@ function Cadastro() {
                 imagen2={Branco}
             />
             <Imput
-                imagen1={emailIcon}
+                imagen1={emailUserIcon}
                 type="email"
                 placeholder="Email"
                 onChange={handleEmailChange}

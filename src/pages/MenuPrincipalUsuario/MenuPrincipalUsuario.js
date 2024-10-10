@@ -11,9 +11,6 @@ function MenuPrincipalUsuario() {
             <SideBarMenu />
             <MenuInicial />
         </div>
-
-
-
     );
 }
 
