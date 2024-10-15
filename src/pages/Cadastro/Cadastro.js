@@ -106,6 +106,7 @@ function Cadastro() {
                 const response = await postCadastroUsuario(dados);
                 setSuccess('Cadastro realizado com sucesso!');
                 navigate('/');
+                alert('Emeil de verificaçao enviado!');
             } catch (error) {
                 console.log(error);
                 setError('Erro ao realizar o cadastro. Tente novamente.');

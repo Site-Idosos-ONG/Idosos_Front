@@ -7,22 +7,23 @@ import { faTasks } from '@fortawesome/free-solid-svg-icons'
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 import { faDonate } from '@fortawesome/free-solid-svg-icons'
-import './sidebar.css';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import style from './Sidebar.module.css';
 
 export function SideBarMenu () {
     const [openMenu, setOpenMenu] = useState(true)
     return (
         <Sidebar onMouseEnter={() => setOpenMenu(false)} onMouseLeave={() => setOpenMenu(true)} backgroundColor="#3C3E9A" collapsed={openMenu} style={{ height: "100vh"}}>
-                <Menu className="menu">
-                    <MenuItem className="menu-item">
+                <Menu className={style.menu}>
+                    <MenuItem className={style.menuitem}>
                         <Link to={"/user"}>
                             <FontAwesomeIcon icon={faUser} className="icon" style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff", hover: "#3C3E9A" }} />
                             Perfil
                         </Link>
                     </MenuItem>
 
-                    <SubMenu className="submenu-item" label={<><FontAwesomeIcon icon={faTasks} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} /> Interações</>}>
-                        <MenuItem className="submenu">
+                    <SubMenu className={style.submenuitem} label={<><FontAwesomeIcon icon={faTasks} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} /> Interações</>}>
+                        <MenuItem className={style.submenu}>
                             <Link to={"/atividades"}>
                                 <FontAwesomeIcon icon={faClipboardList} style={{ marginRight: 10, color: "#ffffff" }} />
                                 Atividades
@@ -37,12 +38,18 @@ export function SideBarMenu () {
                         </MenuItem>
                     </SubMenu>
 
-                    <MenuItem className="menu-item">
+                    <MenuItem className={style.menuitem}>
                         <Link to={"/doacoes"}>
                             <FontAwesomeIcon icon={faDonate} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} />
                             Doações
                         </Link>
                     </MenuItem>
+
+                    <MenuItem className={style.log}>
+                    <FontAwesomeIcon icon={faRightFromBracket} size="xl" style={{paddingLeft: 8, color: "#ffffff"}} />
+                    <div>Logout</div>
+                    </MenuItem>
+                    
                 </Menu>
             </Sidebar>
     )
