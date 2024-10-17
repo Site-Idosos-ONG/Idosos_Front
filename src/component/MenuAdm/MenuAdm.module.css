@@ -1,0 +1,43 @@
+.container {
+    width: 91%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+}
+
+.container img {
+    object-fit: cover;
+    align-items: center;
+    position: absolute;
+    height: 80vh;
+    width: 50vw;
+    top: 50%;
+    left: 35%;
+    z-index: -1;
+}
+
+.titulo {
+    margin-bottom: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.titulo h1 {
+    font-family: "Passion One", sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 0%;
+    color: #1164A7;
+    word-break: break-all;
+}
+
+.titulo h3 {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 0%;
+    color: #1164A7;
+}
