@@ -7,6 +7,7 @@ import Homepage from './pages/Homepage/Homepage';
 import Cadastro from './pages/Cadastro/Cadastro';
 import CadastroAdm from './pages/CadastroAdm/CadastroAdm';
 import MenuPrincipalUsuario from './pages/MenuPrincipalUsuario/MenuPrincipalUsuario';
+import MenuPrincipalAdm from './pages/MenuPrincipalAdm/MenuPrincipalAdm';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/cadastroadm" element={<CadastroAdm/>} />
         <Route path="/principal" element={<MenuPrincipalUsuario />} />
+        <Route path="/adm" element={<MenuPrincipalAdm />} />
         {/*<Route path="*" element={<NotFound />} />*/} {/* Rota para página 404 */} {/*Lembra de fazer a pagina de erro 404 n esquecer de forma nehuma */}
       </Routes>
     </Router>
