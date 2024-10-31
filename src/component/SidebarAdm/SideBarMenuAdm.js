@@ -3,9 +3,9 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faTasks, faClipboardList, faCalendar, faDonate, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import './sidebar.css';
+import style from './SidebarAdm.module.css';
 
-export function SideBarMenu() {
+export function SideBarMenuAdm() {
     const [openMenu, setOpenMenu] = useState(true);
     const navigate = useNavigate();
 
@@ -26,40 +26,40 @@ export function SideBarMenu() {
     };
 
     return (
-        <Sidebar onMouseEnter={() => setOpenMenu(false)} onMouseLeave={() => setOpenMenu(true)} backgroundColor="#3C3E9A" collapsed={openMenu} style={{ height: "100vh" }}>
-            <Menu className="menu">
-                <MenuItem className="menu-item">
-                    <Link to={"/user"}>
+        <Sidebar onMouseEnter={() => setOpenMenu(false)} onMouseLeave={() => setOpenMenu(true)} backgroundColor="#1164A7" collapsed={openMenu} style={{ height: "100vh" }}>
+            <Menu className={style.menu}>
+                <MenuItem className={style.menuitem}>
+                    <Link to={"/user"} aria-label="Perfil do usuário">
                         <FontAwesomeIcon icon={faUser} className="icon" style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} />
                         Perfil
                     </Link>
                 </MenuItem>
 
-                <SubMenu className="submenu-item" label={<><FontAwesomeIcon icon={faTasks} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} /> Interações</>}>
-                    <MenuItem className="submenu">
-                        <Link to={"/atividades"}>
+                <SubMenu className={style.submenuitem} label={<><FontAwesomeIcon icon={faTasks} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} /> Interações</>}>
+                    <MenuItem className={style.submenu}>
+                        <Link to={"/atividades"} aria-label="Gerenciar atividades">
                             <FontAwesomeIcon icon={faClipboardList} style={{ marginRight: 10, color: "#ffffff" }} />
                             Atividades
                         </Link>
                     </MenuItem>
 
                     <MenuItem>
-                        <Link to={"/eventos"}>
+                        <Link to={"/eventos"} aria-label="Gerenciar eventos">
                             <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#ffffff" }} />
                             Eventos
                         </Link>
                     </MenuItem>
                 </SubMenu>
 
-                <MenuItem className="menu-item">
-                    <Link to={"/doacoes"}>
+                <MenuItem className={style.menuitem}>
+                    <Link to={"/doacoes"} aria-label="Gerenciar doações">
                         <FontAwesomeIcon icon={faDonate} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} />
                         Doações
                     </Link>
                 </MenuItem>
 
-                <MenuItem className="menu-item" onClick={handleLogout} style={{ cursor: 'pointer' }}>
-                    <FontAwesomeIcon icon={faRightFromBracket} style={{ paddingLeft: 8, color: "#ffffff" }} />
+                <MenuItem className={style.log} onClick={handleLogout} aria-label="Logout">
+                    <FontAwesomeIcon icon={faRightFromBracket} size="xl" style={{ paddingLeft: 8, color: "#ffffff" }} />
                     <div>Logout</div>
                 </MenuItem>
             </Menu>
