@@ -24,16 +24,21 @@ function Login() {
     }
 
     const handleLogin = async () => {
-        const dados = [{
+        const dados = {
             email: email,
             password: password
-        }]
-
+        };
+    
         try {
             const response = await postLogin(dados);
-            console.log(response);
+            
+            if (response.success) {
+                navigate(response.redirect);
+            } else {
+                console.log(response.error || "Erro desconhecido ao fazer login");
+            }
         } catch (error) {
-            console.log(error);
+            console.log("Erro na chamada de login:", error);
         }
     }
 

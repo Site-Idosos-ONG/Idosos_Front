@@ -9,7 +9,7 @@ body {
     padding: 0;
 }
 
-.social-login-icons {
+.socialLoginIcons {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -20,7 +20,7 @@ body {
   }
   
   .social-icon-1,
-  .social-icon-1-1,
+  .socialIcon1_1,
   .social-icon-2,
   .social-icon-2-2,
   .social-icon-3,
@@ -40,7 +40,7 @@ body {
     fill: #111;
   }
   
-  .socialcontainer {
+  .socialContainer {
     height: 80px;
     overflow: hidden;
   }
