@@ -1,6 +1,6 @@
 import style from './Login.module.css';
 import Imput from '../../component/Imput/Imput';
-import emailIcon from '../../assets/Img/Emeil.svg';
+import emailIcon from '../../assets/Img/EmailUser.svg';
 import senhaIcon from '../../assets/Img/Senha.svg';
 import olhoFechadoIcon from '../../assets/Img/Blind.svg';
 import olhoAbertoIcon from '../../assets/Img/Eye.svg';
@@ -33,6 +33,7 @@ function Login() {
             const response = await postLogin(dados);
             
             if (response.success) {
+                localStorage.setItem('id', response.user_id);
                 navigate(response.redirect);
             } else {
                 console.log(response.error || "Erro desconhecido ao fazer login");
@@ -66,7 +67,8 @@ function Login() {
                     imagen2={olhoFechadoIcon}
                     imagen3={olhoAbertoIcon}
                 />
-                <h5>Esqueceu a sua senha? Clique <span className={style.italico} onClick={() => navigate('/redefinicao-senha')}>aqui</span> para redefinir</h5>
+                <h5>Esqueceu a sua senha? Clique <span className={style.italico2} onClick={() => navigate('/redefinicao-senha')}>aqui</span> para redefinir 
+                ou <span className={style.italico2} onClick={() => navigate('/cadastro')}>Cadastre-se</span></h5>
                 <Botao children={"Entrar"} onClick={() => handleLogin()} color={'blueButton'} />
             </div>
         </div>
