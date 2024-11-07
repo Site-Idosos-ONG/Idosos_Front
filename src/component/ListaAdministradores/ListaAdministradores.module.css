@@ -1,0 +1,35 @@
+.container_geral{
+    padding-left: 1%;
+}
+
+.crudLista {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .crudItemTexto {
+    margin-left: 2%;
+    
+  }
+  
+  .crudBotaoEditar, .crudBotaoExcluir {
+    margin-left: 10px; /* Espaçamento extra entre os botões */
+  }
+
+  .crudItem {
+    display: flex;
+    gap: 30px; /* Espaço entre os campos nome, email, CPF e os botões */
+    margin-bottom: 15px; /* Espaçamento entre itens da lista */
+    box-shadow: 0px 6px 17.9px 6px #1e4464;
+    width: 100%;
+    height: 50%;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.area{
+    padding-bottom: 2%;
+}
+

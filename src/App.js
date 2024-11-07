@@ -9,6 +9,7 @@ import CadastroAdm from './pages/CadastroAdm/CadastroAdm';
 import MenuPrincipalUsuario from './pages/MenuPrincipalUsuario/MenuPrincipalUsuario';
 import MenuPrincipalAdm from './pages/MenuPrincipalAdm/MenuPrincipalAdm';
 import EditarPerfil from './pages/EditarPerfil/EditarPerfil';
+import ListaAdm from './pages/ListaAdm/ListaAdm';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/principal" element={<MenuPrincipalUsuario />} />
         <Route path="/adm" element={<MenuPrincipalAdm />} />
         <Route path='/edicao/perfil' element={<EditarPerfil />} />
+        <Route path='/listaAdm' element={<ListaAdm />} />
         {/*<Route path="*" element={<NotFound />} />*/} {/* Rota para página 404 */} {/*Lembra de fazer a pagina de erro 404 n esquecer de forma nehuma */}
       </Routes>
     </Router>
