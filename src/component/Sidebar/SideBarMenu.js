@@ -17,6 +17,7 @@ export function SideBarMenu() {
             });
             if (response.ok) {
                 navigate('/login');
+                localStorage.removeItem('id');
             } else {
                 console.error("Erro ao fazer logout");
             }
@@ -43,7 +44,7 @@ export function SideBarMenu() {
              className={style.menu}>
 
                 <MenuItem className={style.menuitem}>
-                    <Link to={"/edicao/perfil"}>
+                    <Link to={"/perfil"}>
                         <FontAwesomeIcon icon={faUser} className="icon" style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} />
                         Perfil
                     </Link>
@@ -51,16 +52,16 @@ export function SideBarMenu() {
 
                 <SubMenu className={style.submenuitem} label={<><FontAwesomeIcon icon={faTasks} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} /> Interações</>}>
                     <MenuItem className={style.submenu}>
-                        <Link to={"/atividades"}>
+                        <Link to={"/solictaratividades"}>
                             <FontAwesomeIcon icon={faClipboardList} style={{ marginRight: 10, color: "#ffffff" }} />
-                            Atividades
+                            Solicitar Atividade
                         </Link>
                     </MenuItem>
 
                     <MenuItem >
-                        <Link to={"/eventos"}>
+                        <Link to={"/atividades"}>
                             <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#ffffff" }} />
-                            Eventos
+                            Atividades
                         </Link>
                     </MenuItem>
                 </SubMenu>

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import style from './Imput.module.css';
 
 function Imput({ type, placeholder, value, onChange, imagen1, imagen2, imagen3, imagen4, label }) {
