@@ -11,10 +11,6 @@
     width: 100%; /* Faz o link ocupar toda a largura do MenuItem */
 }
 
-.menuitem a:hover {
-    color: #1164A7;
-}
-
 .icon:hover {
     color: #1164A7;
 }

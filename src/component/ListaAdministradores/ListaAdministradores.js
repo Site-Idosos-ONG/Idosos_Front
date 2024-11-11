@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Botao from "../Botao/Botao";
 import style from "./ListaAdministradores.module.css";
-
+import ImputAdm from "../ImputAdm/ImputAdm";
 
 function Crud() {
   const [form, setForm] = useState({ nome: "", email: "", cpf: "" });
@@ -9,19 +11,31 @@ function Crud() {
   const [indiceEdicao, setIndiceEdicao] = useState(null);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    if (name === "cpf") {
+      // Remove tudo o que não é número
+      let numericValue = value.replace(/\D/g, "");
+      // Limita o CPF a 11 dígitos e aplica a máscara
+      numericValue = numericValue.slice(0, 11)
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+      setForm((prevForm) => ({ ...prevForm, cpf: numericValue }));
+    } else {
+      setForm((prevForm) => ({ ...prevForm, [name]: value }));
+    }
   };
 
   const handleAdd = () => {
-    // Verifica se já existe um usuário com o mesmo CPF
-    const existeUsuario = usuarios.some((usuario) => usuario.cpf === form.cpf);
-    
+    const existeUsuario = usuarios.some(
+      (usuario) => usuario.cpf === form.cpf || usuario.email === form.email || usuario.nome === form.nome
+    );
+
     if (existeUsuario) {
-      alert("Um usuário com esse CPF já foi adicionado.");
+      alert("Usuário com o mesmo CPF, email ou nome já foi adicionado.");
       return;
     }
-    
-    // Se o formulário estiver preenchido e o CPF não for duplicado
+
     if (form.nome && form.email && form.cpf) {
       setUsuarios([...usuarios, form]);
       setForm({ nome: "", email: "", cpf: "" });
@@ -51,29 +65,29 @@ function Crud() {
       <h1 className={style.crudTitulo}>Lista de Administradores</h1>
       
       <div className={style.crudFormulario}>
-        <input
+        <ImputAdm 
           type="text"
           name="nome"
           placeholder="Nome Completo"
-          value={form.nome}
           onChange={handleChange}
-          className={style.crudInput}
+          value={form.nome}
+          className={style.Input}
         />
-        <input
+        <ImputAdm 
           type="email"
           name="email"
           placeholder="Email"
-          value={form.email}
           onChange={handleChange}
-          className={style.crudInput}
+          value={form.email}
+          className={style.Input}
         />
-        <input
+        <ImputAdm
           type="text"
           name="cpf"
           placeholder="CPF"
-          value={form.cpf}
           onChange={handleChange}
-          className={style.crudInput}
+          value={form.cpf}
+          className={style.Input}
         />
         
         {indiceEdicao === null ? (
@@ -85,17 +99,25 @@ function Crud() {
 
       <ul className={style.crudLista}>
         {usuarios.map((usuario, index) => (
-        <div className={style.rolagem}>
-        <div className={style.area}>
           <li key={index} className={style.crudItem}>
             <p className={style.crudItemTexto}><strong>Nome:</strong> {usuario.nome}</p>
             <p className={style.crudItemTexto}><strong>Email:</strong> {usuario.email}</p>
             <p className={style.crudItemTexto}><strong>CPF:</strong>  {usuario.cpf}</p>
-            <Botao onClick={() => handleEdit(index)} className={style.crudBotaoEditar} color={'lightBlueButton'}>Editar</Botao>
-            <Botao onClick={() => handleDelete(index)} className={style.crudBotaoExcluir} color={'lightBlueButton'}>Excluir</Botao>
+            
+            {/* Ícone para editar */}
+            <FontAwesomeIcon 
+              icon={faEdit} 
+              onClick={() => handleEdit(index)} 
+              className={style.crudIconEditar} 
+            />
+
+            {/* Ícone para excluir */}
+            <FontAwesomeIcon 
+              icon={faTrash} 
+              onClick={() => handleDelete(index)} 
+              className={style.crudIconExcluir} 
+            />
           </li>
-        </div>
-        </div>
         ))}
       </ul>
     </div>

@@ -1,5 +1,9 @@
 .container_geral{
     padding-left: 1%;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 0 2rem;
 }
 
 .crudLista {
@@ -20,7 +24,7 @@
     display: flex;
     gap: 30px; /* Espaço entre os campos nome, email, CPF e os botões */
     margin-bottom: 15px; /* Espaçamento entre itens da lista */
-    box-shadow: 0px 6px 17.9px 6px #1e4464;
+    box-shadow: 0px 6px 17.9px 6px #1164A7;
     width: 100%;
     height: 50%;
     border-radius: 14px;
@@ -33,3 +37,28 @@
     padding-bottom: 2%;
 }
 
+.crudTitulo {
+    color: #1164A7;
+    font-family: "Poppins", sans-serif;
+}
+
+.crudFormulario {
+    display: flex;
+    width: 100%;
+}
+
+.crudIconEditar,
+.crudIconExcluir {
+    cursor: pointer;
+    font-size: 20px;
+    color: #1164A7;
+    transition: color 0.2s ease;
+}
+
+.crudIconEditar:hover {
+    color: #0074D9;
+}
+
+.crudIconExcluir:hover {
+    color: #FF4136;
+}

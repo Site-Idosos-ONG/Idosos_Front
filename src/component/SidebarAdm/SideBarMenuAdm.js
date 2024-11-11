@@ -27,7 +27,19 @@ export function SideBarMenuAdm() {
 
     return (
         <Sidebar onMouseEnter={() => setOpenMenu(false)} onMouseLeave={() => setOpenMenu(true)} backgroundColor="#1164A7" collapsed={openMenu} style={{ height: "100vh" }}>
-            <Menu className={style.menu}>
+            <Menu menuItemStyles={{
+                    button: ({ level, active }) => {
+                      if (level === 0 || level === 1 ) {
+                        return {
+                          "&:hover" :  {
+                            backgroundColor: '#308dda',
+                          }
+                        }
+                      }
+                    },
+                  }}
+
+                className={style.menu}>
                 <MenuItem className={style.menuitem}>
                     <Link to={"/user"} aria-label="Perfil do usuário">
                         <FontAwesomeIcon icon={faUser} className="icon" style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} />
