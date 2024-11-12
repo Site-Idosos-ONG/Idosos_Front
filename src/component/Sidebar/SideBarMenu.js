@@ -59,9 +59,9 @@ export function SideBarMenu() {
                     </MenuItem>
 
                     <MenuItem >
-                        <Link to={"/atividades"}>
+                        <Link to={"/minhasatividades"}>
                             <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#ffffff" }} />
-                            Atividades
+                            MinhasAtividades
                         </Link>
                     </MenuItem>
                 </SubMenu>

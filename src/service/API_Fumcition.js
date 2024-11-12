@@ -25,8 +25,13 @@ export const postMudarSenha = async (data, id) => {
     return response.data;
 }
 
-export const postEditarPerfil = async (data) => {
+export const postProcurarPerfil = async (data) => {
     const response = await axiosInstance.post("/busca", data);
+    return response.data;
+}
+
+export const postEditarPerfil = async (data) => {
+    const response = await axiosInstance.post("/editar_perfil", data);
     return response.data;
 }
 
