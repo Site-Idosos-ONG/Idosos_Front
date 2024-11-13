@@ -45,8 +45,8 @@ function EditarPerfilOP() {
     const handleEditClick = async () => {
 
         const dados = {
-            novo_nome: nomeNovo,
-            novo_email: emailNovo,
+            nome: nomeNovo,
+            email: emailNovo,
             usuario_id: id
         };
 

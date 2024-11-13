@@ -7,6 +7,7 @@ function SolicitarAtividadeMenu() {
     const [titulo, setTitulo] = useState('');
     const [data, setData] = useState('');
     const [descricao, setDescricao] = useState('');
+    const [id, setId] = useState(String(localStorage.getItem("id")));
 
     const handleTituloChange = (e) => {
         setTitulo(e.target.value);
@@ -25,7 +26,8 @@ function SolicitarAtividadeMenu() {
         const dados = [{
             nome: titulo,
             data: data,
-            descricao: descricao
+            descricao: descricao,
+            usuario_id: id
         }];
         try {
             const response = await postCriarAtividade(dados);

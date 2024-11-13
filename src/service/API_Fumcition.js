@@ -39,3 +39,8 @@ export const postCriarAtividade = async (data) => {
     const response = await axiosInstance.post("/criar_atividades", data);
     return response.data;
 }
+
+export const postProcurarAtividade = async (data) => {
+    const response = await axiosInstance.post("/listar_atividades_do_usuario", data);
+    return response.data;
+}
