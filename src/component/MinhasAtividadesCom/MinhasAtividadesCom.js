@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { postProcurarAtividade } from "../../service/API_Fumcition";
 
 function MinhasAtividadesCom() {
-    const [id, setId] = useState(String(localStorage.getItem("id")));
+    const [id] = useState(String(localStorage.getItem("id")));
     const [atividades, setAtividades] = useState([]);
 
     useEffect(() => {
@@ -15,9 +15,15 @@ function MinhasAtividadesCom() {
 
             try {
                 const response = await postProcurarAtividade(dados);
-                setAtividades(response.data); // Supondo que `response.data` seja o array de atividades
+                if (response && response.data) {
+                    setAtividades(response.data);
+                } else {
+                    console.log("Resposta inesperada da API:", response);
+                    setAtividades([]);
+                }
             } catch (error) {
                 console.log("Erro na chamada de editar perfil:", error);
+                setAtividades([]);
             }
         };
 
@@ -29,7 +35,7 @@ function MinhasAtividadesCom() {
             <div className={style.titulo}>
                 <h1>Minhas Atividades</h1>
             </div>
-            {atividades.length > 0 ? (
+            {Array.isArray(atividades) && atividades.length > 0 ? (
                 atividades.map((atividade, index) => (
                     <AtividadeUnitaria
                         key={index}
