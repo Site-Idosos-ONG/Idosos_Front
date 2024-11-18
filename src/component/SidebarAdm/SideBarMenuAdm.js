@@ -49,15 +49,15 @@ export function SideBarMenuAdm() {
 
                 <SubMenu className={style.submenuitem} label={<><FontAwesomeIcon icon={faTasks} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} /> Interações</>}>
                     <MenuItem className={style.submenu}>
-                        <Link to={"/atividades"} aria-label="Gerenciar atividades">
-                            <FontAwesomeIcon icon={faClipboardList} style={{ marginRight: 10, color: "#ffffff" }} />
+                        <Link to={"/listaAtividadesAdm"} aria-label="Gerenciar atividades">
+                            <FontAwesomeIcon icon={faClipboardList} style={{ marginRight: 10, color: "#1164A7" }} />
                             Atividades
                         </Link>
                     </MenuItem>
 
                     <MenuItem>
                         <Link to={"/eventos"} aria-label="Gerenciar eventos">
-                            <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#ffffff" }} />
+                            <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#1164A7" }} />
                             Eventos
                         </Link>
                     </MenuItem>

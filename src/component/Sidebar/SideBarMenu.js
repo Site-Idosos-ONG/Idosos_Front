@@ -52,14 +52,14 @@ export function SideBarMenu() {
                 <SubMenu className={style.submenuitem} label={<><FontAwesomeIcon icon={faTasks} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} /> Interações</>}>
                     <MenuItem className={style.submenu}>
                         <Link to={"/atividades"}>
-                            <FontAwesomeIcon icon={faClipboardList} style={{ marginRight: 10, color: "#ffffff" }} />
+                            <FontAwesomeIcon icon={faClipboardList} style={{ marginRight: 10, color: "#3C3E9A" }} />
                             Atividades
                         </Link>
                     </MenuItem>
 
                     <MenuItem >
                         <Link to={"/eventos"}>
-                            <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#ffffff" }} />
+                            <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#3C3E9A" }} />
                             Eventos
                         </Link>
                     </MenuItem>
