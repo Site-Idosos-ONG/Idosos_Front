@@ -1,0 +1,36 @@
+.container {
+    width: 91%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-left: auto;
+    padding-left: 2%;
+}
+
+.titulo {
+    margin-bottom: auto;
+    margin-right: auto;
+    height: 100%;
+}
+
+.titulo h1 {
+    font-family: "Passion One", sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 0%;
+    color: #191A66;
+    word-break: break-all;
+}
+
+.mensagemNenhumaAtividade {
+    font-family: "Passion One", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #A9A9A9; /* Cinza suave para destacar a mensagem */
+    margin-top: 20px;
+    text-align: center;
+    word-break: break-word;
+}

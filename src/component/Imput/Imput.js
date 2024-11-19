@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import style from './Imput.module.css';
 
-function Imput({ type, placeholder, value, onChange, imagen1, imagen2, imagen3 }) {
+function Imput({ type, placeholder, value, onChange, imagen1, imagen2, imagen3, imagen4, label }) {
     const [inputType, setInputType] = useState(type);
     const [currentImage, setCurrentImage] = useState(imagen2);
 
@@ -17,7 +17,8 @@ function Imput({ type, placeholder, value, onChange, imagen1, imagen2, imagen3 }
 
     return (
         <div className={style.inputContainer}>
-            <img src={imagen1} className={style.icon} alt="input icon" />
+            <label className={style.label}>{label}</label>
+            {imagen1 && <img src={imagen1} className={style.icon} alt="input icon" />}
             <input
                 className={style.input}
                 type={inputType}
@@ -25,6 +26,7 @@ function Imput({ type, placeholder, value, onChange, imagen1, imagen2, imagen3 }
                 value={value}
                 onChange={onChange}
             />
+            {imagen4 && <img src={imagen4} className={style.icon} alt="input icon" />}
             {type === 'password' && (
                 <img
                     src={currentImage}

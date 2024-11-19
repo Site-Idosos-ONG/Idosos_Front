@@ -48,6 +48,12 @@
     color: #f9812b;
 }
 
+.italico2 {
+    font-weight: bold;
+    color: #f9812b;
+    cursor: pointer;
+}
+
 .quadrado2 {
     width: 50%;
     height: 100%;
@@ -86,4 +92,5 @@
     text-align: center;
     color: #3C3E9A;
     margin: 0%;
+    padding-top: 1%;
 }   

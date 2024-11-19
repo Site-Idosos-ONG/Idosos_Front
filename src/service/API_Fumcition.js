@@ -24,3 +24,23 @@ export const postMudarSenha = async (data, id) => {
     const response = await axiosInstance.post("/resetar_senha/" + id, data);
     return response.data;
 }
+
+export const postProcurarPerfil = async (data) => {
+    const response = await axiosInstance.post("/busca", data);
+    return response.data;
+}
+
+export const postEditarPerfil = async (data) => {
+    const response = await axiosInstance.post("/editar_perfil", data);
+    return response.data;
+}
+
+export const postCriarAtividade = async (data) => {
+    const response = await axiosInstance.post("/criar_atividades", data);
+    return response.data;
+}
+
+export const postProcurarAtividade = async (data) => {
+    const response = await axiosInstance.post("/listar_atividades_do_usuario", data);
+    return response.data;
+}

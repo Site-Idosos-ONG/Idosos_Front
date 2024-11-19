@@ -8,6 +8,9 @@ import Cadastro from './pages/Cadastro/Cadastro';
 import CadastroAdm from './pages/CadastroAdm/CadastroAdm';
 import MenuPrincipalUsuario from './pages/MenuPrincipalUsuario/MenuPrincipalUsuario';
 import MenuPrincipalAdm from './pages/MenuPrincipalAdm/MenuPrincipalAdm';
+import EditarPerfil from './pages/EditarPerfil/EditarPerfil';
+import SolicitarAtividades from './pages/SolicitarAtividades/SolicitarAtividades';
+import MinhasAtividades from './pages/MinhasAtividades/MinhasAtividades';
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
         <Route path="/cadastroadm" element={<CadastroAdm/>} />
         <Route path="/principal" element={<MenuPrincipalUsuario />} />
         <Route path="/adm" element={<MenuPrincipalAdm />} />
+        <Route path='/perfil' element={<EditarPerfil />} />
+        <Route path="/solictaratividades" element={<SolicitarAtividades />} />
+        <Route path='/minhasatividades' element ={<MinhasAtividades/>} />
         {/*<Route path="*" element={<NotFound />} />*/} {/* Rota para página 404 */} {/*Lembra de fazer a pagina de erro 404 n esquecer de forma nehuma */}
       </Routes>
     </Router>
