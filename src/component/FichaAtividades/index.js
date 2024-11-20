@@ -3,9 +3,7 @@ import styles from "./styles.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faSquareCheck, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 
-
-
-export const FichaAtividades = ({ solicitante, cpf, data, descricao }) => {
+export const FichaAtividades = ({ solicitante, data, titulo, descricao }) => {
 
     const [showDescription, setShowDescription] = useState(false);
 
@@ -13,15 +11,15 @@ export const FichaAtividades = ({ solicitante, cpf, data, descricao }) => {
         <div className={styles.container}>
             <div className={styles.header}>
                 <div className={styles.headerContent}>
+                <span>Titulo: {titulo}</span>
                 <span >Solicitante: {solicitante}</span>
-                <span>CPF: {cpf}</span>
                 <span>Data: {data}</span>
                 </div>
                 <span className={styles.openCard} onClick={() => setShowDescription(!showDescription)}><FontAwesomeIcon icon={faChevronDown} style={{color: "#218ee7", fontSize: "20px"}} /></span>
             </div>
             <div className={styles.descriptionContent + " " + (showDescription ? styles.showDescription : styles.hideDescription)}>
                 <span className={styles.divider}/>
-               
+
                 <div className={styles.descText}>
                     <p>Descricao: {descricao}</p>
                 </div>

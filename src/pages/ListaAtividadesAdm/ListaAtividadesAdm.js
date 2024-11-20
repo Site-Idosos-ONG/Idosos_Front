@@ -1,18 +1,28 @@
 import style from "./ListaAtividadesAdm.module.css";
+import { useState, useEffect } from "react";
 import { SideBarMenuAdm } from "../../component/SidebarAdm/SideBarMenuAdm";
 import { FichaAtividades } from "../../component/FichaAtividades";
-
-
+import { getListaAtividadesAdm } from '../../service/API_Fumcition';
 
 function ListaAtividadesAdm() {
-    const DADOS = [
-        { solicitante: "xxxx", cpf: "xxxx", data: "xxxx", descricao: "loren ipsum loren ipsum v loren ipsum" },
-        { solicitante: "xxxx", cpf: "xxxx", data: "xxxx", descricao: "loren ipsum loren ipsum v loren ipsum" },
-        { solicitante: "xxxx", cpf: "xxxx", data: "xxxx", descricao: "loren ipsum loren ipsum v loren ipsum" },
-        { solicitante: "xxxx", cpf: "xxxx", data: "xxxx", descricao: "loren ipsum loren ipsum v loren ipsum" },
-      
-    ]
+    const [atividades, setAtividades] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
+    useEffect(() => {
+        const fetchAtividades = async () => {
+            try {
+                const data = await getListaAtividadesAdm();
+                setAtividades(data);
+            } catch (err) {
+                setError("Erro ao carregar atividades.");
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchAtividades();
+    }, []);
 
     return (
         <div className={style.container_geral}>
@@ -22,11 +32,20 @@ function ListaAtividadesAdm() {
                     Atividades
                 </h1>
                 <div className={style.fichas}>
-                    {DADOS ? DADOS.map((dados, index) => (<FichaAtividades key={index} solicitante={dados.solicitante} cpf={dados.cpf} data={dados.data} descricao={dados.descricao} />))
-                    : 
-                    <span className={style.NaoTem}>Não existem atividades no momento...</span>
-                    }
-                    
+                    {atividades.length > 0 ? (
+                        atividades.map((dados, index) => (
+                            <FichaAtividades
+                                key={index}
+                                solicitante={dados.nome_usuario}
+                                cpf={dados.cpf}
+                                data={dados.data}
+                                titulo={dados.nome_atividade}
+                                descricao={dados.descricao}
+                            />
+                        ))
+                    ) : (
+                        <span className={style.NaoTem}>Não existem atividades no momento...</span>
+                    )}
                 </div>
             </div>
         </div>

@@ -49,3 +49,13 @@ export const postDoacao = async (data) => {
     const response = await axiosInstance.post("/doacao", data);
     return response.data;
 }
+
+export const getListaAtividadesAdm = async () => {
+    try {
+        const response = await axiosInstance.get("/atividades");
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar atividades:", error);
+        throw error;
+    }
+};

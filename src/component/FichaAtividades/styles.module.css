@@ -33,8 +33,7 @@
     flex-direction: column;
     overflow: hidden;
     width: 100%;
-    transition: all 0.5s ease-in-out;
-    font-size: 25px;
+    transition: height 0.5s ease-in-out;
     color: #218ee7;
     font-family: "Poppins", sans-serif;
 }
@@ -44,7 +43,7 @@
 }
 
 .showDescription {
-    height: 200px;
+    height: auto;
 }
 
 .divider {
@@ -55,8 +54,15 @@
 }
 
 .confirm {
-    margin-left: 96%;
+    margin-left: 95.7%;
     cursor: pointer;
     margin-top: 3%;
     font-size: 30px;
+}
+
+.descText {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    font-size: 22px;
 }
