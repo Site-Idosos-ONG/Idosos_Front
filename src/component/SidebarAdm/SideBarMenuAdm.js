@@ -56,9 +56,9 @@ export function SideBarMenuAdm() {
                     </MenuItem>
 
                     <MenuItem>
-                        <Link to={"/eventos"} aria-label="Gerenciar eventos">
+                        <Link to={"/listaAdm"} aria-label="Gerenciar Administrador">
                             <FontAwesomeIcon icon={faCalendar} style={{ marginRight: 10, color: "#1164A7" }} />
-                            Eventos
+                            Listar Adm
                         </Link>
                     </MenuItem>
                 </SubMenu>

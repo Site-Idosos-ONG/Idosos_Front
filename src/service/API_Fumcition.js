@@ -59,3 +59,23 @@ export const getListaAtividadesAdm = async () => {
         throw error;
     }
 };
+
+export const getListaAdministradores = async () => {
+    try {
+        const response = await axiosInstance.get("/listar_adm");
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar administradores:", error);
+        throw error;
+    }
+};
+
+export const updateAdministrador = async (id, data) => {
+    const response = await axiosInstance.put(`/atualizar_adm`, data);
+    return response.data;
+  };
+
+export const deleteAdministrador = (id) =>
+    axiosInstance.delete(`/deletar_adm`, {
+      data: { id },
+});
