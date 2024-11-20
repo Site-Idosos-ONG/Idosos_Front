@@ -44,3 +44,8 @@ export const postProcurarAtividade = async (data) => {
     const response = await axiosInstance.post("/listar_atividades_do_usuario", data);
     return response.data;
 }
+
+export const postDoacao = async (data) => {
+    const response = await axiosInstance.post("/doacao", data);
+    return response.data;
+}

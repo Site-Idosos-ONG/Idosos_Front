@@ -1,15 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Opcoes.module.css"
 import Botao from "../Botao/Botao";
+import { postDoacao } from '../../service/API_Fumcition';
 
 const Opcoes = () => {
   const [item, setItem] = useState("");
-  const [category, setCategory] = useState("");
+  const [id, setId] = useState(null);
   const [date, setDate] = useState("");
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const userId = localStorage.getItem("id");
+    if (userId) {
+      setId(userId);
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Item: ${item}, Data: ${date}`);
+
+    if (!id) {
+      alert("ID do usuário não encontrado.");
+      return;
+    }
+
+    const data = { id, item, date };
+
+    try {
+      const response = await postDoacao(data);
+
+      if (response.success) {
+        alert("Doação enviada com sucesso!");
+        setItem("");
+        setDate("");
+      } else {
+        alert(`Erro: ${response.error || "Erro ao enviar a doação. Tente novamente."}`);
+      }
+    } catch (error) {
+      console.error("Erro ao conectar ao servidor:", error);
+      alert("Erro ao conectar ao servidor. Tente novamente.");
+    }
   };
 
   return (
