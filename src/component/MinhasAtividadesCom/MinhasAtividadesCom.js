@@ -52,6 +52,7 @@ function MinhasAtividadesCom() {
                         dataPrevista={atividade.dataPrevista}
                         checado={atividade.checado}
                         descricao={atividade.descricao}
+                        observacao={atividade.observacao}
                     />
                 ))
             ) : (

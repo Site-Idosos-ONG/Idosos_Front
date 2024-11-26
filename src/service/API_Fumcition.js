@@ -79,3 +79,34 @@ export const deleteAdministrador = (id) =>
     axiosInstance.delete(`/deletar_adm`, {
       data: { id },
 });
+
+export const approveActivity = async (titulo, usuario_id, atividade_id) => {
+    try {
+        const response = await axiosInstance.post(`/gerenciar_atividade_adm`, {
+            titulo,
+            usuario_id,
+            atividade_id,
+            status: "aprovado"
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao aprovar atividade:", error);
+        throw error;
+    }
+};
+
+export const sendObservation = async (titulo, usuario_id, atividade_id, observation) => {
+    try {
+        const response = await axiosInstance.post(`/gerenciar_atividade_adm`, {
+            titulo,
+            usuario_id,
+            atividade_id,
+            status: "rejeitado",
+            observation
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao enviar observação:", error);
+        throw error;
+    }
+};

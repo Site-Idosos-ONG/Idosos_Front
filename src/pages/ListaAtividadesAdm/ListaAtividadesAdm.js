@@ -41,6 +41,8 @@ function ListaAtividadesAdm() {
                                 data={dados.data}
                                 titulo={dados.nome_atividade}
                                 descricao={dados.descricao}
+                                usuario_id={dados.id_usuario}
+                                atividade_id={dados.id}
                             />
                         ))
                     ) : (

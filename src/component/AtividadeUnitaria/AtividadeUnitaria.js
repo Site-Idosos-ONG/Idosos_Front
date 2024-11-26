@@ -7,15 +7,15 @@ function AtividadeUnitaria({ titulo, dataPrevista, checado, descricao, observaca
     const [showDescription, setShowDescription] = useState(false);
 
     const getChecadoClass = () => {
-        if (checado === 1) return style.aceito;
-        if (checado === 2) return style.recusado;
+        if (checado === 2) return style.aceito;
+        if (checado === 1) return style.recusado;
         if (checado === 0) return style.pendente;
         return "";
     };
     
     const traduzirChecado = () => {
-        if (checado === 1) return "ACEITO";
-        if (checado === 2) return "RECUSADO";
+        if (checado === 1) return "RECUSADO";
+        if (checado === 2) return "ACEITO";
         if (checado === 0) return "PENDENTE";
         return "DESCONHECIDO";
     };

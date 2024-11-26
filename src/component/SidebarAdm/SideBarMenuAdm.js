@@ -63,13 +63,6 @@ export function SideBarMenuAdm() {
                     </MenuItem>
                 </SubMenu>
 
-                <MenuItem className={style.menuitem}>
-                    <Link to={"/doacoes"} aria-label="Gerenciar doações">
-                        <FontAwesomeIcon icon={faDonate} style={{ paddingLeft: 8, fontSize: '24px', marginRight: 10, color: "#ffffff" }} />
-                        Doações
-                    </Link>
-                </MenuItem>
-
                 <MenuItem className={style.log} onClick={handleLogout} aria-label="Logout">
                     <FontAwesomeIcon icon={faRightFromBracket} size="xl" style={{ paddingLeft: 8, color: "#ffffff" }} />
                     <div>Logout</div>
