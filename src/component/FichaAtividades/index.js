@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faSquareCheck, faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import { approveActivity, sendObservation } from "../../service/API_Fumcition";
 
-export const FichaAtividades = ({ solicitante, data, titulo, descricao, usuario_id, atividade_id }) => {
+export const FichaAtividades = ({ solicitante, data, titulo, descricao, usuario_id, atividade_id, checado }) => {
     const [showDescription, setShowDescription] = useState(false);
     const [isObservationModalOpen, setIsObservationModalOpen] = useState(false);
     const [observation, setObservation] = useState("");
 
     const handleApproval = async () => {
         try {
-            await approveActivity(titulo, usuario_id, atividade_id,);
+            await approveActivity(titulo, usuario_id, atividade_id);
             alert("Atividade aprovada com sucesso!");
         } catch (error) {
             alert("Erro ao aprovar atividade.");
@@ -29,6 +29,20 @@ export const FichaAtividades = ({ solicitante, data, titulo, descricao, usuario_
         }
     };
 
+    const getChecadoClass = () => {
+        if (checado === 2) return styles.aceito;
+        if (checado === 1) return styles.recusado;
+        if (checado === 0) return styles.pendente;
+        return "";
+    };
+
+    const traduzirChecado = () => {
+        if (checado === 1) return "RECUSADO";
+        if (checado === 2) return "ACEITO";
+        if (checado === 0) return "PENDENTE";
+        return "DESCONHECIDO";
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -37,15 +51,18 @@ export const FichaAtividades = ({ solicitante, data, titulo, descricao, usuario_
                     <span>Solicitante: {solicitante}</span>
                     <span>Data: {data}</span>
                 </div>
-                <span
-                    className={styles.openCard}
-                    onClick={() => setShowDescription(!showDescription)}
-                >
-                    <FontAwesomeIcon
-                        icon={faChevronDown}
-                        style={{ color: "#218ee7", fontSize: "20px" }}
-                    />
-                </span>
+                <div className={styles.status}>
+                    <span className={`${styles.checado} ${getChecadoClass()}`}>{traduzirChecado()}</span>
+                    <span
+                        className={styles.openCard}
+                        onClick={() => setShowDescription(!showDescription)}
+                    >
+                        <FontAwesomeIcon
+                            icon={faChevronDown}
+                            style={{ color: "#218ee7", fontSize: "20px" }}
+                        />
+                    </span>
+                </div>
             </div>
             <div
                 className={
