@@ -15,8 +15,17 @@ function MinhasAtividadesCom() {
 
             try {
                 const response = await postProcurarAtividade(dados);
-                if (response && response.data) {
-                    setAtividades(response.data);
+                if (Array.isArray(response)) {
+                    const atividadesFormatadas = response.map((atividade) => ({
+                        id: atividade[0],
+                        usuarioId: atividade[1],
+                        titulo: atividade[2],
+                        descricao: atividade[3],
+                        dataPrevista: atividade[4],
+                        checado: atividade[5],
+                        observacao: atividade[6],
+                    }));
+                    setAtividades(atividadesFormatadas);
                 } else {
                     console.log("Resposta inesperada da API:", response);
                     setAtividades([]);
@@ -26,7 +35,7 @@ function MinhasAtividadesCom() {
                 setAtividades([]);
             }
         };
-
+    
         fetchData();
     }, [id]);
 

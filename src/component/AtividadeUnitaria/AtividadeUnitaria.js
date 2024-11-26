@@ -1,33 +1,44 @@
+import { useState } from "react";
 import style from "./AtividadeUnitaria.module.css";
-import mais from "../../assets/Img/Mais.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-function AtividadeUnitaria({ titulo, dataPrevista, checado, descricao }) {
-    // Função para definir a classe CSS com base no valor de 'checado'
+function AtividadeUnitaria({ titulo, dataPrevista, checado, descricao, observacao }) {
+    const [showDescription, setShowDescription] = useState(false);
+
     const getChecadoClass = () => {
-        if (checado === "ACEITO") return style.aceito;
-        if (checado === "RECUSADA") return style.recusado;
-        if (checado === "PENDENTE") return style.pendente;
-        return ""; // Classe vazia para qualquer outro valor
+        if (checado === 1) return style.aceito;
+        if (checado === 2) return style.recusado;
+        if (checado === 0) return style.pendente;
+        return "";
+    };
+    
+    const traduzirChecado = () => {
+        if (checado === 1) return "ACEITO";
+        if (checado === 2) return "RECUSADO";
+        if (checado === 0) return "PENDENTE";
+        return "DESCONHECIDO";
     };
 
     return (
         <div className={style.container}>
-            <div className={style.container2}>
-                <div className={style.titulo}>
-                    <h2>Titulo:</h2>
-                    <h1>{titulo}</h1>
+            <div className={style.header}>
+                <div className={style.headerContent}>
+                    <span className={style.titulo}>Título: {titulo}</span>
+                    <span className={style.data}>Data Prevista: {dataPrevista}</span>
                 </div>
-                <div className={style.data}>
-                    <h2>Data Prevista:</h2>
-                    <h1>{dataPrevista}</h1>
+                <div className={style.statusContainer}>
+                    <span className={`${style.checado} ${getChecadoClass()}`}>{traduzirChecado()}</span>
+                    <span className={style.openCard} onClick={() => setShowDescription(!showDescription)}>
+                        <FontAwesomeIcon icon={faChevronDown} style={{ color: "#218ee7", fontSize: "20px" }} />
+                    </span>
                 </div>
             </div>
-            <div className={style.container3}>
-                <div className={`${style.checado} ${getChecadoClass()}`}>
-                    <h1>{checado}</h1>
-                </div>
-                <div className={style.mais}>
-                    <img src={mais} alt="Mais" />
+            <div className={`${style.descriptionContent} ${showDescription ? style.showDescription : style.hideDescription}`}>
+                <span className={style.divider} />
+                <div className={style.descText}>
+                    <p>Descrição: {descricao}</p>
+                    {observacao && <p>Observação: {observacao}</p>}
                 </div>
             </div>
         </div>

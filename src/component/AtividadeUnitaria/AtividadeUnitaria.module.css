@@ -1,100 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 .container {
-    width: 91%;
-    height: 8vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    margin-left: auto;
-    padding-left: 2%;
-    box-shadow: 0px 6px 17.9px 6px #3E3F92CC;
+    flex-direction: column;
+    box-shadow: 0px 6px 17.9px 6px #191A66;
+    padding: 1.3rem 2rem;
     border-radius: 14px;
-    margin-right: auto;
+    margin: 10px 0;
+    background-color: #fff;
+    width: 90%;
 }
 
-.container2 {
+.header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 50%;
-}
-
-.titulo {
-    display: flex;
     align-items: center;
-    justify-content: space-around;
-    width: 30%;
+    width: 100%;
 }
 
-.data {
+.headerContent {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 45%;
+    flex-direction: row;
+    gap: 5rem;
+    font-size: 25px;
+    color: #191A66;
+    font-family: "Poppins", sans-serif;
 }
 
-.titulo h2 {
-    font-family: "Poppins", serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 20px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #3E3F92;
-}
-
-.titulo h1 {
-    font-family: "Poppins", serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 20px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #000000;
-}
-
-.data h2 {
-    font-family: "Poppins", serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 20px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #3E3F92;
-}
-
-.data h1 {
-    font-family: "Poppins", serif;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 20px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    color: #000000;
-}
-
-.container3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 20%;
+.titulo, .data, .checado {
+    margin-right: 10px;
 }
 
 .checado {
-    font-family: "Passion One", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 50px;
-    text-align: center;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    font-weight: bold;
 }
 
 .aceito {
@@ -106,5 +42,43 @@
 }
 
 .pendente {
-    color: #A9A9A9; /* Cor cinza */
+    color: #A9A9A9;
+}
+
+.openCard {
+    cursor: pointer;
+}
+
+.descriptionContent {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+    transition: height 0.5s ease-in-out;
+    color: #191A66;
+    font-family: "Poppins", sans-serif;
+}
+
+.hideDescription {
+    height: 0px;
+}
+
+.showDescription {
+    height: auto;
+}
+
+.divider {
+    margin-top: 1rem;
+    width: 100%;
+    height: 1px;
+    background-color: #191A66;
+}
+
+.descText {
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    font-size: 22px;
+    margin-top: 10px;
+    color: #333;
 }
